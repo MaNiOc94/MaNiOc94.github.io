@@ -1,0 +1,80 @@
+
+/* Configuración básica */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de encabezados */
+h1, h3 {
+    color: #444;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Botones */
+button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Inputs y Textareas */
+input[type="text"], textarea, input[type="radio"], input[type="checkbox"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Videos */
+video {
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}

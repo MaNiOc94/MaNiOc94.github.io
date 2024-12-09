@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Página del Trabajador{% endblock %}
+
+{% block content %}
+<h1>Trabajador</h1>
+<form method="POST">
+    <h3>Normativa interna</h3>
+    <p>Por favor, vea el siguiente video:</p>
+    <p>Introducción a la normativa de seguridad.</p>
+    <video width="600" controls autoplay>
+        <source src="/static/videos/normativatrabajadores1.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+
+    <!-- Opciones iniciales -->
+    <label for="checklist_toggle">¿Desea realizar el checklist de seguridad?</label>
+    <input type="checkbox" id="checklist_toggle" onchange="toggleSection('checklist_section', 'checklist_toggle')">
+    
+    <!-- Sección del checklist -->
+    <div id="checklist_section" style="display: none; margin-top: 20px;">
+        <h3>Checklist de seguridad</h3>
+        <label>Condiciones de iluminación adecuadas:</label>
+        <input type="radio" name="iluminacion" value="Si"> Sí
+        <input type="radio" name="iluminacion" value="No"> No<br><br>
+
+        <label>Orden y limpieza adecuados:</label>
+        <input type="radio" name="orden" value="Si"> Sí
+        <input type="radio" name="orden" value="No"> No<br><br>
+
+        <label>No hay derrame de fluidos:</label>
+        <input type="radio" name="derrames" value="Si"> Sí
+        <input type="radio" name="derrames" value="No"> No<br><br>
+    </div>
+
+    <!-- Más contenido aquí -->
+    <label for="condiciones_inseguras_toggle">¿Desea reportar condiciones inseguras?</label>
+    <input type="checkbox" id="condiciones_inseguras_toggle" onchange="toggleSection('condiciones_inseguras_section', 'condiciones_inseguras_toggle')">
+
+    <div id="condiciones_inseguras_section" style="display: none; margin-top: 20px;">
+        <label>Condiciones inseguras:</label><br>
+        <textarea name="condiciones_inseguras" rows="3" placeholder="Describa las condiciones inseguras..."></textarea><br><br>
+    </div>
+
+    <label for="observaciones_toggle">¿Desea agregar observaciones generales?</label>
+    <input type="checkbox" id="observaciones_toggle" onchange="toggleSection('observaciones_section', 'observaciones_toggle')">
+
+    <div id="observaciones_section" style="display: none; margin-top: 20px;">
+        <label>Observaciones generales:</label><br>
+        <textarea name="observaciones" rows="3" placeholder="Escriba sus observaciones..."></textarea><br><br>
+    </div>
+
+    <!-- Botón de envío -->
+    <button type="submit">Enviar</button>
+</form>
+<a href="{{ url_for('home') }}">Regresar al inicio</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Página del Visitante/Proveedor{% endblock %}
+
+{% block content %}
+<h1>Visitante/Proveedor</h1>
+<form method="POST" enctype="multipart/form-data">
+    <label for="poliza">Suba su póliza de seguro:</label><br>
+    <input type="file" name="poliza" id="poliza"><br><br>
+
+    <label for="clausula">Suba la cláusula de no repetición:</label><br>
+    <input type="file" name="clausula" id="clausula"><br><br>
+
+    <!-- Fechas de visita -->
+    <h3>Detalles de la visita</h3>
+    <label for="fecha_desde">Fecha de inicio:</label><br>
+    <input type="date" name="fecha_desde" id="fecha_desde"><br><br>
+
+    <label for="fecha_hasta">Fecha de fin:</label><br>
+    <input type="date" name="fecha_hasta" id="fecha_hasta"><br><br>
+
+    <!-- Trabajo en altura -->
+    <label for="trabajo_altura">¿El trabajo debe realizarse en alturas?</label>
+    <input type="checkbox" name="trabajo_altura" id="trabajo_altura"><br><br>
+
+    <h3>Normativa interna</h3>
+    <p>Por favor, vea el siguiente video:</p>
+    <p>Introducción a la normativa de seguridad.</p>
+    <video width="600" controls autoplay>
+        <source src="/static/videos/normativavisita1.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+
+    <!-- Botón de envío -->
+    <button type="submit">Enviar</button>
+</form>
+<a href="{{ url_for('home') }}">Regresar al inicio</a>
+{% endblock %}

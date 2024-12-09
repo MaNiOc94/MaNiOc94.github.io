@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h1>Bienvenido a la plataforma de seguridad</h1>
+<p>Seleccione una de las opciones:</p>
+<ul>
+    <li><a href="{{ url_for('trabajador') }}">Soy trabajador</a></li>
+    <li><a href="{{ url_for('visitante') }}">Soy visitante/proveedor</a></li>
+</ul>
+{% endblock %}
