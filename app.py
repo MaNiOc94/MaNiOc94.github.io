@@ -13,11 +13,11 @@ def home():
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-#  Asegurarse de que la carpeta "uploads" exista
+# Asegurarse de que la carpeta "uploads" exista
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
-    
-#  Rutas para visitantes
+
+# Rutas para visitantes
 @app.route("/visitante", methods=["GET", "POST"])
 def visitante():
     if request.method == "POST":
@@ -26,7 +26,7 @@ def visitante():
         fecha_visita = request.form.get("fecha")
         alturas = request.form.get("alturas") == "on"
 
-#  Guardar archivos PDF si se subieron
+        # Guardar archivos PDF si se subieron
         if poliza:
             poliza.save(f"uploads/{poliza.filename}")
         if clausula:
@@ -56,6 +56,9 @@ def trabajador():
     
     return render_template("trabajador.html")
 
+# Obtener el puerto asignado por Render (o el puerto 5000 para pruebas locales)
+port = int(os.environ.get("PORT", 5000))
+
 # Correr la aplicación
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=port)
